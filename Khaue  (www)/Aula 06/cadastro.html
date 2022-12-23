@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+
+
+  <form action="usuario.php" method="POST">
+
+    Nome: <input type="text" name="nome">
+    Sobrenome: <input type="text" name="sobrenome"> <br><br>
+    
+    Ano de Nascimento: 
+    <select name="anoDeNascimento">
+      <option value="">-</option>
+      <option value="1969">1969</option>
+      <option value="1970">1970</option>
+      <option value="1971">1971</option>
+      <option value="1972">1972</option>
+    </select> <br><br>
+
+    Sexo: 
+    <input type="radio" value="Masculino" name="sexo">Masculino
+    <input type="radio" value="Feminino" name="sexo">Feminino<br><br>
+    
+    Redes Sociais:
+    <select name="redeSociais[]" multiple="multiple">
+      <option value="vazio" selected>-</option>
+      <option value="Twitter">Twitter</option>
+      <option value="Instagram">Instagram</option>
+      <option value="Orkut">Orkut</option>
+      <option value="MSN">MSN</option>
+    </select> <br><br>
+    
+    Senha: <input type="password" name="senha"> <br><br>
+
+    <input type="submit" value="Enviar"> <br>
+
+  </form>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>
