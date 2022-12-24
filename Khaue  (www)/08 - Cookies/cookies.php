@@ -1,6 +1,6 @@
 <?php
 
-//CRIANDO COOKIES
+//CRIANDO
     setcookie("usuario", "Felipe");
     setcookie("aluno", "Khaue", (time() + (2 * 15)));
 
@@ -8,7 +8,7 @@
 
     echo $_COOKIE["aluno"];
 
-//APAGANDO COOKIE
+//APAGANDO
     setcookie("usuario"); //declare apenas o nome do cookie
     setcookie("aluno", );
     
