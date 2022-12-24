@@ -9,9 +9,7 @@
     echo $_COOKIE["aluno"];
 
 //APAGANDO
-    setcookie("usuario"); //declare apenas o nome do cookie
-    setcookie("aluno", );
-    
+
 
 
 
