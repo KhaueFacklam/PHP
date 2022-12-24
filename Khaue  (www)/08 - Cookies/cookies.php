@@ -8,8 +8,8 @@
 
     echo $_COOKIE["aluno"];
 
-//APAGAR COOKIE
-    setcookie("usuario"); //apenas declare os nomedo cookie, ou
+//APAGANDO COOKIE
+    setcookie("usuario"); //declare apenas o nome do cookie
     setcookie("aluno", );
     
 
