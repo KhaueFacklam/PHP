@@ -1,6 +1,6 @@
 <?php
 	
-	// Inicia a sessão
+	// Inicia uma sessão
 	session_start(); /
 	session_cache_expire(1); // Modifica o tempo de expiração (padrão são 180 minutos)
 
@@ -8,7 +8,7 @@
 	$_SESSION['usuario'] = 'sergio';
 	$_SESSION['senha']   = 'sergio123';
 	
-	// Exibi um valor salvo
+	// Exibi um valor
 	echo 'Olá ' . $_SESSION['usuario'];
 	
 	// Deleta uma variável
@@ -17,7 +17,7 @@
 	// Destrói toda sessão
 	session_destroy();
 
-	// Verifica se a sessão não existe (isset verifica se uma variável foi iniciada)
+	// Verifica se a sessão não existe através do isset, que confere se uma variável foi iniciada
 	if(!isset($_SESSION['usuario']) && !isset($_SESSION['senha'])) {
 		exit('Não há sessão ativa'); // mata o scrip e envia uma mensagem
 	}
