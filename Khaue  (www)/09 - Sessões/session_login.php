@@ -19,6 +19,7 @@
 	unset($_SESSION['usuario'])
 
 // DESTRÓI TODA SESSÃO
+	session_start();
 	session_destroy();
 
 // VERIFICA SE UMA SESSÃO NÃO EXISTE (isset confere se uma variável foi iniciada)
