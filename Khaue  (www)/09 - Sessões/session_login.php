@@ -1,28 +1,38 @@
 <?php
-	
-	// Inicia uma sessão
-	session_start(); /
-	session_cache_expire(1); // Modifica o tempo de expiração (padrão são 180 minutos)
 
-	// Cria chaves e adiciona valores
+// INICIA UMA SESSÃO
+		//com tempo de expiração (padrão são 180 minutos)
+	session_cache_expire(10); // expira em 10 minutos
+	session_start();
+
+		//sem tempo de expiração (padrão são 180 minutos)
+	session_start();
+
+// CRIA CHAVES E ADICIONA VALORES
 	$_SESSION['usuario'] = 'sergio';
 	$_SESSION['senha']   = 'sergio123';
 	
-	// Exibi um valor
+// EXIBI UM VALOR
 	echo 'Olá ' . $_SESSION['usuario'];
 	
-	// Deleta uma variável
+// DELETA UMA VARIÁVEL
 	unset($_SESSION['usuario'])
 
-	// Destrói toda sessão
+// DESTRÓI TODA SESSÃO
 	session_destroy();
 
-	// Verifica se a sessão não existe através do isset, que confere se uma variável foi iniciada
+// VERIFICA SE UMA SESSÃO NÃO EXISTE (isset confere se uma variável foi iniciada)
 	if(!isset($_SESSION['usuario']) && !isset($_SESSION['senha'])) {
 		exit('Não há sessão ativa'); // mata o scrip e envia uma mensagem
-	}
+	} else {
+		// Pode terminar a sessão dando unset nos campos da sessão ou com session_destroy.
+		// session_destroy();
+		unset($_SESSION['usuario']);
+		unset($_SESSION['senha']);
+		echo 'Sessão terminada, faça login novamente';
+	}	  
 
-	// Verifica se a sessão do usuário está vazia
+// VERIFICA SE A SESSÃO DO USUÁRIO ESTÁ VAZIA
 	if(empty($_SESSION['usuario']) && empty($_SESSION['senha'])) {
 		exit('Sessão terminada! Faça o login novamente'); // mata o scrip e envia uma mensagem
 	}
