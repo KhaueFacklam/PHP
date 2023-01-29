@@ -62,10 +62,13 @@
         $password = $_POST["password"];        
 
         // busca email
-        foreach($cadastros as $i){
-            if ($i["email"] == $email && $i["senha"] == $password){ 
+        foreach($cadastros as $cadastro){
+            if ($cadastro["email"] == $email && $cadastro["senha"] == $password){
+
+                $nome = $cadastro["nome"];
+
                 session_start();
-                $_SESSION["nome"] = $i["nome"];
+                $_SESSION["nome"] = $nome;
                 break;
             }
         }
@@ -76,28 +79,24 @@
 
 
 
-    <body>
+<body>
 
-        <div id="box" class="large">
-            
-            <?php
+    <div id="box" class="large">
+        
+        <?php
 
-                if(!isset($_SESSION["nome"])) {
-                    echo "<h1>Usuário/senha incorreta.</h1>";
-                } else {
-                    echo "<h1>Logado com sucesso.</h1>
-                        <h2> Bem-vindo(a) " . $_SESSION["nome"] . "</h2>";
-                }
-                
-            ?>
+            if(isset($_SESSION["nome"]))
+                echo "<h1>Logado com sucesso.</h1>
+                    <h2> Bem-vindo " . $_SESSION["nome"];
+            else {
+                echo "<h1>Nenhum usuário logado.</h1>";
+            }
+        ?>
 
-            <form action="logout.php" method="post">
-
-                <button class="button">LOGOUT</button>
-                
-            </form>
-
-        </div>
-
-    </body>
+        </h2>
+        <form action="logout.php" method="post">
+            <button class="button">LOGOUT</button>
+        </form>
+    </div>
+</body>
 </html>

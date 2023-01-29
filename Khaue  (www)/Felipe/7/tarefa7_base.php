@@ -2,8 +2,7 @@
 	$file = fopen("generic-food.csv", "r");
 	$content = "";
 	
-	echo "<h3>" . fgets($file) . "</h3>";
-	do {
+	while(!feof($file)) {
 
 		$row = fgets($file);
 		if (mb_strpos($row, 'Fruit') !== false) {
@@ -16,7 +15,7 @@
 			}
 		}
 		
+	};
 
-	} while ($row);
 	fclose($file);
 ?>

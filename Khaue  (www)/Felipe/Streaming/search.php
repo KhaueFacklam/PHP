@@ -34,7 +34,6 @@ include('verifyLogin.php');
         $obj = json_decode($json);
 
         echo "<p>Resultados para $pesquisa";
-        echo "<div><a href='home.php' class='link'>Voltar</a></div>";
         echo "<div class='moviesContainer'>";
         foreach ($obj->results as $result) {
             $poster_path = $result->poster_path;

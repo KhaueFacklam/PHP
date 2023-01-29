@@ -21,17 +21,12 @@ if (!isset($_SESSION)) {
             <input type="text" name="email" placeholder="email" class="inputText" autofocus>
             <input type="password" name="password" placeholder="senha" class="inputText">
             <input type="submit" name="submit" value="Login" class="inputSubmit">
-            <a href="cadastro.php" class="link">Cadastrar</a>
         </form>
     </div>
     <?php
 
     if (isset($_POST['email']) && isset($_POST['password'])) {
 
-        if(isset($_SESSION['cadastro'])){
-            $users[] = $_SESSION['cadastro'];
-        }
-        
         foreach ($users as $user) {
             if ($_POST['email'] = $user['email'] && $_POST['password'] == $user['password']) {
                 $_SESSION['login'] = $user['nome'];

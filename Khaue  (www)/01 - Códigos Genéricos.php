@@ -20,11 +20,12 @@
 	}
 	
 //funcao com parâmetro
+	echo compara(rand(1,10), rand(1,10));
+
 	function compara ($n1, $n2) {
 		return "<br>" . $n1 * $n2 . "<br>";
 	}
 	
-	echo compara(rand(1,10), rand(1,10));
 	
 
 //conversão de tipo de variável
@@ -44,23 +45,15 @@
 
 //passagem por referencia
 	$A = 0; //A vale 0
-
+	
+	alterar($A);
 	function alterar (&$x) {
 		$x = 5; //agora A vale 5
 	}
 
-	alterar($A);
 	echo $A;
 
 //opeador ternário
 	$a = 8;
 	$b = "oito";
 	echo $a == $b ? "As variáveis SÃO iguais!" : "As variáveis NÃO são iguais!";
-
-
-
-
-
-	
-
-?>

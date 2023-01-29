@@ -1,11 +1,12 @@
 <?php
 
-// INICIA UMA SESSÃO
-		//com tempo de expiração (padrão são 180 minutos)
-	session_cache_expire(10); // expira em 10 minutos
+// INICIA UMA SESSÃO SEM TEMPO DE EXPIRAÇÃO
+
 	session_start();
 
-		//sem tempo de expiração (padrão são 180 minutos)
+// INICIAN UMA SESSÃO COM TEMPO DE EXPIRAÇÃO - padrão são 180 minutos
+
+	session_cache_expire(10); // esta expira em 10 minutos 
 	session_start();
 
 // CRIA CHAVES E ADICIONA VALORES
@@ -22,7 +23,8 @@
 	session_start();
 	session_destroy();
 
-// VERIFICA SE UMA SESSÃO NÃO EXISTE (isset confere se uma variável foi iniciada)
+// VERIFICA SE UMA SESSÃO NÃO EXISTE (o isset confere se uma variável foi iniciada)
+
 	if(!isset($_SESSION['usuario']) && !isset($_SESSION['senha'])) {
 		exit('Não há sessão ativa'); // mata o scrip e envia uma mensagem
 	} else {
@@ -40,10 +42,6 @@
 
 
 
-	
-
-
-	// 
 
 
 

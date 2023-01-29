@@ -45,34 +45,7 @@ header {
     display: flex;
     flex-flow: column nowrap;
     justify-content: space-around;
-    height: 200px;
-}
-
-.cadastroForm {
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: space-around;
-    height: 300px;
-}
-
-table, tr, td {
-    border: solid 2px var(--darkYellow); border-collapse: collapse;
-}
-
-table {
-    width: 60vw;
-    height: 30vh;
-}
-
-
-.link {
-    transition: .2s;
-}
-
-.link:hover {
-    text-decoration: underline;
-    color: var(--darkYellow);
-    transition: .2s;
+    height: 140px;
 }
 
 .inputText {

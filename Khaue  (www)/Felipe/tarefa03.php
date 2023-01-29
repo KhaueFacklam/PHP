@@ -1,6 +1,6 @@
 <?php 
     
-    $table = array(
+    $tabela = array(
         array(
             "nome" => "João Silva",
             "idade" => 25,
@@ -25,7 +25,7 @@
         array(
             "nome" => "Eduardo Andrade",
             "idade" => 20,
-            "email" => "duduAndrade@gmail.com",
+            "email" => "duduandrade@gmail.com",
             "e.civil" => "Solteiro",
             "salario" => 1500,
         ),
@@ -78,7 +78,6 @@
                 };
                 echo "</tr>";
             };
-            
         ?>
         </tbody>
     </table>

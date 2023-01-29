@@ -25,19 +25,18 @@ if (!isset($_SESSION)) {
         <input type='submit' name='submit' value='Pesquisar' class='inputSubmit'>
     </form>
         <a href='logout.php'><p id='logout'>Logout</p></a>
-        </header>";
-        echo "<div><a href='home.php' class='link'>Voltar</a></div>";
-        $movie_id = $_GET['id'];
-        $url = "https://api.themoviedb.org/3/movie/$movie_id/videos?api_key=$API_KEY&language=en-US";
-        $json = file_get_contents($url);
-        $obj = json_decode($json);
-        $key = $obj->results[0]->key;
-        $name = $obj->results[0]->name;
-        $site = $obj->results[0]->site;
-        echo "<iframe width='1120' height='630' src='https://www.youtube.com/embed/$key' 
-            title='$name' frameborder='0' allow='accelerometer; 
-            autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; 
-            web-share' allowfullscreen></iframe>";
+    </header>";
+    $movie_id = $_GET['id'];
+    $url = "https://api.themoviedb.org/3/movie/$movie_id/videos?api_key=$API_KEY&language=en-US";
+    $json = file_get_contents($url);
+    $obj = json_decode($json);
+    $key = $obj->results[0]->key;
+    $name = $obj->results[0]->name;
+    $site = $obj->results[0]->site;
+    echo "<iframe width='1120' height='630' src='https://www.youtube.com/embed/$key' 
+        title='$name' frameborder='0' allow='accelerometer; 
+        autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; 
+        web-share' allowfullscreen></iframe>";
     ?>
 </body>
 
