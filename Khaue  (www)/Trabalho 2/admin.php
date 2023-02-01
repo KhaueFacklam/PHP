@@ -22,13 +22,17 @@ if (!isset($_SESSION)) {
 
         <?php
 
+        if (isset($_SESSION["cadastro"])) {
+            $usuarios[] = $_SESSION["cadastro"];
+        }
+
         if (isset($_SESSION["Admin"])) {
             echo "<h1> Bem-vindo, " . $_SESSION["Admin"] . "!</h1>
             <div  class='bold'> Usuários cadastrados: </div><br></br>";
 
             foreach ($usuarios as $linha) {
                 foreach ($linha as $chave => $conteudo) {
-                    echo "<div>" . ucfirst($chave) . ": " . $conteudo . "</div>";
+                    echo "<div>" . ucfirst($chave) . ": " . $newtext = wordwrap($conteudo, 32, "\n", true) . "</div>";
                 }
                 echo "<br></br>";
             }
@@ -37,7 +41,6 @@ if (!isset($_SESSION)) {
         }
 
         ?>
-
 
         <button class="button"><a href="logout.php" class="link">Log Out</a></button>
 

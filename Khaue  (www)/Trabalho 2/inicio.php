@@ -19,14 +19,14 @@ if (!isset($_SESSION)) {
 <body>
 
 
-        <form method="post" id="box">
+        <form method="get" id="box">
             <h2>Estoque de Produtos</h2>
 
             <input placeholder="Nome do produto" name="nome" class="text" type="text">
             <input placeholder="Descricao" name="descricao" class="text" type="text">
             <input placeholder="Preço" name="preco" class="text" id="" type="number">
             <input placeholder="Quantidade" name="quantidade" class="text" id="" type="number">
-            <input name="submit" class="button" type="submit" value="Listar/Registrar Produto">
+            <input name="submit" class="button" type="submit" value="Listar/Registrar">
 
             <button class="button"><a href="logout.php" class="link">Log Out</a></button>
         </form>
@@ -34,9 +34,9 @@ if (!isset($_SESSION)) {
 
     <?php
 
-    if (isset($_POST["submit"])) {
+    if (isset($_GET["submit"])) {
 
-        if ($_POST["nome"] == "" || $_POST["descricao"] == "" || $_POST["preco"] == "" || $_POST["quantidade"] == "") {
+        if ($_GET["nome"] == "" || $_GET["descricao"] == "" || $_GET["preco"] == "" || $_GET["quantidade"] == "") {
             foreach ($produtos as $linha) {
                 echo "<br></br>";
                 foreach ($linha as $chave => $conteudo) {
@@ -44,15 +44,15 @@ if (!isset($_SESSION)) {
                 }
             }
         } else {
-            $nome = $_POST["nome"];
-            $descricao = $_POST["descricao"];
-            $preco = $_POST["preco"];
-            $quantidade = $_POST["quantidade"];
+            $nome = $_GET["nome"];
+            $descricao = $_GET["descricao"];
+            $preco = $_GET["preco"];
+            $quantidade = $_GET["quantidade"];
 
             $verifica = true;
 
             foreach ($produtos as $chave => $produto) {
-                if ($produto["nome"] == $_POST["nome"]) {
+                if ($produto["nome"] == $_GET["nome"]) {
                     $produtos[$chave]["descricao"] = $descricao;
                     $produtos[$chave]["preco"] = $preco;
                     $produtos[$chave]["quantidade"] += $quantidade;
@@ -63,10 +63,10 @@ if (!isset($_SESSION)) {
 
             if ($verifica) {
                 $novoproduto = array(
-                    "nome" => $_POST["nome"],
-                    "descricao" => $_POST["descricao"],
-                    "preco" => $_POST["preco"],
-                    "quantidade" => $_POST["quantidade"]
+                    "nome" => $_GET["nome"],
+                    "descricao" => $_GET["descricao"],
+                    "preco" => $_GET["preco"],
+                    "quantidade" => $_GET["quantidade"]
                 );
                 $produtos[] = $novoproduto;
             }

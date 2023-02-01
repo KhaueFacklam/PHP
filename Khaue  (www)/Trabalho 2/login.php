@@ -37,32 +37,37 @@ if (!isset($_SESSION)) {
 
         if ($_POST["email"] != "" && $_POST["password"] != "") {
 
-            $adminNome = "Admin";
-            $adminEmail = "admin@mail.com";
-            $adminSenha = "admin@mail.com";
-
-            if ($_POST["email"] == $adminEmail && $_POST["password"] == $adminSenha) {
-                $_SESSION["Admin"] = $adminNome;
-                header("Location: admin.php");
+            if (!filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
+                echo "<h2 class='erro'>*formato de email inválido</h2>";
             } else {
-
-                $login = $_POST["email"];
-                $password = $_POST["password"];
-                $verifica = true;
+                $adminNome = "admin";
+                $adminEmail = "admin@gmail.com";
+                $adminSenha = "admin@gmail.com";
 
                 if (isset($_SESSION["cadastro"])) {
                     $usuarios[] = $_SESSION["cadastro"];
                 }
 
-                foreach ($usuarios as $usuario) {
-                    if ($usuario["email"] == $login && $usuario["password"] == $password) {
-                        $verifica = false;
-                        header("Location: inicio.php");
-                        break;
+                if ($_POST["email"] == $adminEmail && $_POST["password"] == $adminSenha) {
+                    $_SESSION["Admin"] = $adminNome;
+                    header("Location: admin.php");
+
+                } else {
+
+                    $login = $_POST["email"];
+                    $password = $_POST["password"];
+                    $verifica = true;
+
+                    foreach ($usuarios as $usuario) {
+                        if ($usuario["email"] == $login && password_verify($password, $usuario["password"])) {
+                            $verifica = false;
+                            header("Location: inicio.php");
+                            break;
+                        }
                     }
-                }
-                if ($verifica) {
-                    echo "<h2 class='erro'>*dados incorretos</h2>";
+                    if ($verifica) {
+                        echo "<h2 class='erro'>*dados incorretos</h2>";
+                    }
                 }
             }
         } else {

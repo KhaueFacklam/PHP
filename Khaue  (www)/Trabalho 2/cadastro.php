@@ -49,14 +49,12 @@ if (!isset($_SESSION)) {
                 $novoUsuario = array(
                     "nome" => $_POST["nome"],
                     "email" => $_POST["email"],
-                    "password" => $_POST["password"]
+                    "password" => password_hash($_POST["password"], PASSWORD_DEFAULT)
                 );
                 $_SESSION["cadastro"] = $novoUsuario;
                 header("Location: login.php");
-                print_r($usuarios);
             } else {
                 echo "<h2 class='erro'>*este usuário já existe</h2>";
-                print_r($usuarios);
             }
         }
     }
