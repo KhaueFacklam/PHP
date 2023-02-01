@@ -42,7 +42,7 @@ if (!isset($_SESSION)) {
                 "id" => $id++,
                 "nome" => $_POST['nome'],
                 "email" => $_POST['email'],
-                "password" => $_POST['password']
+                "password" => password_hash($_POST['password'], PASSWORD_DEFAULT)
             );
             $_SESSION['cadastro'] = $cadastro;
             header('Location: login.php');

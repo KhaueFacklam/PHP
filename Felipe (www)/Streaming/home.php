@@ -19,7 +19,7 @@ if (!isset($_SESSION)) {
 <body>
 
     <?php
-    if (isset($_GET['search'])) {
+    if (isset($_GET['search']) && ($_GET['search']) != '') {
         header("Location: search.php?search='$_GET[search]'");
         exit;
     }

@@ -28,18 +28,18 @@ if (!isset($_SESSION)) {
 
     if (isset($_POST['email']) && isset($_POST['password'])) {
 
-        if(isset($_SESSION['cadastro'])){
+        if(isset($_SESSION['cadastro'])){ //verifica se foi feito algum cadastro
             $users[] = $_SESSION['cadastro'];
         }
         
-        foreach ($users as $user) {
-            if ($_POST['email'] = $user['email'] && $_POST['password'] == $user['password']) {
+        foreach ($users as $user) {//login de usuario
+            if ($_POST['email'] = $user['email'] && password_verify( $_POST['password'], $user['password'])) {
                 $_SESSION['login'] = $user['nome'];
                 header('Location: home.php');
             }
         }
 
-        if ($_POST['email'] = "admin" && $_POST['password'] == "admin") {
+        if ($_POST['email'] = "admin" && $_POST['password'] == "admin") { //login de admin
             $_SESSION['login'] = "admin";
             header('Location: homeAdmin.php');
         } else {
@@ -51,6 +51,7 @@ if (!isset($_SESSION)) {
     if (isset($_GET['error'])) {
         $error = "Faça login.";
     }
+    
     ?>
     <p class="errorLogin"><?php echo $error ?? '' ?></p>
 </body>
