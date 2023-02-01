@@ -32,7 +32,7 @@ if (!isset($_SESSION)) {
 
             foreach ($usuarios as $linha) {
                 foreach ($linha as $chave => $conteudo) {
-                    echo "<div>" . ucfirst($chave) . ": " . $newtext = wordwrap($conteudo, 32, "\n", true) . "</div>";
+                    echo "<div>" . "<b>" . ucfirst($chave) . ": </b>" . $newtext = wordwrap($conteudo, 30, "\n", true) . "</div>";
                 }
                 echo "<br></br>";
             }
